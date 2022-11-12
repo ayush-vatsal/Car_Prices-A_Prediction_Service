@@ -3,7 +3,7 @@ name: Car-feature-and-inference-pipeline
 on:
   workflow_dispatch:
    schedule:
-    - cron: '58 18 * * *'
+    - cron: '41 09 * * *'
 
 jobs:
   test_schedule:
