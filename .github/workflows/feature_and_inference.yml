@@ -64,7 +64,7 @@ jobs:
       
           # Optional. Options used by `git-add`.
           # See https://git-scm.com/docs/git-add#_options
-          #add_options: '-u'
+          add_options: '-u'
       
           # Optional. Options used by `git-push`.
           # See https://git-scm.com/docs/git-push#_options
