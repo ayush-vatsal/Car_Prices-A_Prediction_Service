@@ -25,7 +25,7 @@ jobs:
       - name: execute python workflows from bash script
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: chmod +x ./scripts/run-feature-and-inference-pipelines.sh
+        run: ./scripts/run-feature-and-inference-pipelines.sh
 
       - name: publish github pages
         uses: stefanzweifel/git-auto-commit-action@v4
@@ -64,7 +64,7 @@ jobs:
       
           # Optional. Options used by `git-add`.
           # See https://git-scm.com/docs/git-add#_options
-          add_options: '-u'
+#           add_options: '-u'
       
           # Optional. Options used by `git-push`.
           # See https://git-scm.com/docs/git-push#_options
