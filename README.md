@@ -1,5 +1,5 @@
 # Car_Prices-An AI enabled prediction service
-![New Data](https://user-images.githubusercontent.com/57457066/201737480-ea6b25ca-964a-4c08-93a8-fe4e481479a2.png)
+![New Data](https://user-images.githubusercontent.com/57457066/201737908-1de63824-6195-40aa-b448-6118e09a7522.png)
 Using web scraped data from one of India's largest car website, Cardekho, building a prediction service with **Feature**, **Training** and **Inference pipelines** for continous prdictions on prices of used cars in India.
 > A Forbes study (March 2016) finds that Data Scientists spend less than 4 percent time on model selection and refining algorithms. This project builds on that and has a data centric approach to it, rather than a conventional model centric approach.
 
