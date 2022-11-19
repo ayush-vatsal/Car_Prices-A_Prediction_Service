@@ -12,4 +12,4 @@ Then there are three pipelines: **Feature pipeline**, **Training pipeline** and 
 
 ### Acknowledgements:
 This project uses the Hopsworks Feature store and github actions, I'd like to thank them for the free resources. 
-A lot of my Machine and Deep Learning knowledge comes from either Andrew NG's Deeplearning.ai, Prof. Vineeth from IIT Madras(swayam lectures) and my university professors. I'd like to thank them as well. Finally and the most important, the Serverless ML course (available for free on youtube) by Jim Dowling, CEO Hopsworks helped me a lot in completing this project.
+A lot of my Machine and Deep Learning knowledge comes from either Andrew NG's Deeplearning.ai, Fastai's Jeremy Howard, Swayam lectures and my university professors. I'd like to thank them as well. Finally and the most important, the Serverless ML course (available for free on youtube) by Jim Dowling, CEO Hopsworks helped me a lot in completing this project.
