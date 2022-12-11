@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
+
 import requests
 
 import hopsworks
@@ -16,16 +17,15 @@ st.set_page_config(
 project = hopsworks.login()
 fs = project.get_feature_store()
 
-mr = project.get_model_registry()
-model = mr.get_model("car_prices", version=1)
-model_dir = model.download()
-model = joblib.load(model_dir + "/car_prices_model.pkl")
+@st.cache(allow_output_mutation=True,suppress_st_warning=True)
+def get_model():
+    mr = project.get_model_registry()
+    model = mr.get_model("car_prices", version=1)
+    model_dir = model.download()
+    return joblib.load(model_dir + "/car_prices_model.pkl")
 
 header = st.container()
-
 model_train = st.container()
-
-# mileage, engine, max_power, seats, age, seller_type, fuel_type, transmission_type
 with header:
     st.title("Car Prices Predictive analysis")
     col_a, col_b = st.columns(2)
@@ -92,14 +92,15 @@ if (input_list[13] == "Manual"):
     input_list.pop(13)
     input_list.insert(13, 0)
     input_list.insert(14, 1)
-
+# mileage, engine, max_power, seats, age, seller_type, fuel_type, transmission_type
 df = pd.DataFrame(input_list)
-res = model.predict(df.T)[0].round(4)
+model = get_model()
 
-# col_but = st.columns(5)
+
 with model_train:
     disp = st.columns(5)
     pred_button = disp[2].button('Evaluate price')
     if pred_button:
+        res = model.predict(df.T)[0].round(4)
         with st.spinner():
-            st.write(f'#### Evaluated price of the car: ₹ {res:,.2f}') 
+            st.write(f'#### Evaluated price of the car(in lakhs): ₹ {res:,.4f}') 
