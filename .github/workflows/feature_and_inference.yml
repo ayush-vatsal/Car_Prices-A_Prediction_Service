@@ -2,12 +2,12 @@ name: Car-feature-and-inference-pipeline
 
 on:
    workflow_dispatch:
-   schedule:
-    - cron: '25 17 * * *'
+#    schedule:
+#     - cron: '25 14 * * *'
 
 jobs:
   test_schedule:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: checkout repo content
         uses: actions/checkout@v2
@@ -25,7 +25,7 @@ jobs:
       - name: execute python workflows from bash script
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: chmod +x ./scripts/run-feature-and-inference-pipelines.sh
+        run: ./scripts/run-feature-and-inference-pipelines.sh
 
       - name: publish github pages
         uses: stefanzweifel/git-auto-commit-action@v4
@@ -43,7 +43,7 @@ jobs:
       
           # Optional glob pattern of files which should be added to the commit
           # Defaults to all (.)
-          file_pattern: assets/df_recent.png
+          file_pattern: assets/df_recent.png assets/output.csv
       
           # Optional. Local file path to the repository.
           # Defaults to the root of the repository.
@@ -64,7 +64,7 @@ jobs:
       
           # Optional. Options used by `git-add`.
           # See https://git-scm.com/docs/git-add#_options
-          #add_options: '-u'
+#           add_options: '-u'
       
           # Optional. Options used by `git-push`.
           # See https://git-scm.com/docs/git-push#_options
