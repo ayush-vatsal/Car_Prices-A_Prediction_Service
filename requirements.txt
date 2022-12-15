@@ -6,4 +6,4 @@ plotly
 Pillow
 seaborn
 dataframe-image
-plotly
+
